@@ -1,0 +1,11 @@
+html {
+    height: 100vh;
+}
+
+#bg {
+    position: absolute;
+    top: 184px;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+}

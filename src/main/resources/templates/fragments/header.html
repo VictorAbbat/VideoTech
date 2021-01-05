@@ -1,0 +1,29 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<section th:fragment = "header">
+
+    <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="/">VideoTech</a>
+
+    <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-toggle="collapse" data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+        <ul class="navbar">
+            <li class="nav" id="li_home">
+                <a class="nav-link" href="/"><span th:text="#{home}"></span></a>
+            </li>
+            <li class="nav" id="li_add_video">
+                <a class="nav-link" href="/video/create"><span th:text="#{create}"></span></a>
+            </li>
+            <li class="nav" id="li_list_videos">
+                <a class="nav-link" href="/video/list"><span th:text="#{list}"></span></a>
+            </li>
+            <li class="nav" id="li_lg_en">
+                <button class="btn btn-toolbar" type="button" th:text="#{switch-en_US}" onclick="window.location.href=document.URL.includes('?langage') ? document.URL.replace(/[a-z]{2}_[A-Z]{2}/, 'en_US'):document.URL+'?langage=en_US'"></button>
+            </li>
+            <li class="nav" id="li_lg_fr">
+                <button class="btn btn-toolbar" type="button" th:text="#{switch-fr_CA}" onclick="window.location.href=document.URL.includes('?langage') ? document.URL.replace(/[a-z]{2}_[A-Z]{2}/, 'fr_CA'):document.URL+'?langage=fr_CA'"></button>
+            </li>
+        </ul>
+    </nav>
+</section>

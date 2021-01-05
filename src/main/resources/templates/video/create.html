@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <head th:include="fragments/head :: head" th:remove="tag"></head>
+    <title>Create video</title>
+</head>
+<body>
+<section th:include="fragments/header::header" th:remove="tag"></section>
+<div class="container">
+    <div class="col-md-12">
+        <div class="box">
+            <div class="col-md-12" th:if="${message} != null">
+                <p class="alert text-red" th:text="${message}"></p>
+            </div>
+            <form class="form-horizontal" th:action="@{/video/create}" th:object="${video}" method="POST">
+                <div class="form-group">
+                    <label for="title-field" class="col-form-label" th:text="#{title}"></label>
+                    <input class="form-control" id="title-field" th:field="*{title}" type="text" name="title" required="required"/>
+                    <label th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title Error</label>
+                </div>
+                <div class="form-group">
+                    <label for="genre-field" th:text="#{genre}"></label>
+                    <input class="form-control" id="genre-field" th:field="*{genre}" type="text" name="genre" required="required"/>
+                    <label th:if="${#fields.hasErrors('genre')}" th:errors="*{genre}">Genre Error</label>
+                </div>
+                <div class="form-group">
+                    <label for="description-field" th:text="#{description}"></label>
+                    <input class="form-control" id="description-field" th:field="*{description}" type="text" name="description"/>
+                </div>
+                <div class="form-group">
+                    <label for="year-field" th:text="#{year}"></label>
+                    <input class="form-control" id="year-field" type="text" th:field="*{year}" name="year"/>
+                    <label th:if="${#fields.hasErrors('year')}" th:errors="*{year}">Year Error</label>
+                </div>
+                <label>
+                    <input type="submit" class="btn btn-success" th:value="#{submit}">
+                    <a class="btn btn-danger pl-2" href="/video/list" th:text="#{cancel}"></a>
+                </label>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <footer th:include="fragments/footer::footer" th:remove="tag"></footer>
+</div>
+</body>
+</html>
+

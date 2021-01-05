@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <head th:include="fragments/head :: head" th:remove="tag"></head>
+    <title>VideoTech</title>
+</head>
+<body>
+<section th:include="fragments/header::header" th:remove="tag"></section>
+<div class="container-fluid">
+    <div class="row">
+        <main class="col-md-9 ml-sm-auto col-lg-12 px-md-4 align-items-center justify-content-center">
+            <div class="jumbotron jumbotron-fluid mb-0">
+                <div class="container">
+                    <h1 class="display-6">
+                        <span th:text="#{welcome}"></span>
+                    </h1>
+                </div>
+            </div>
+            <img id="bg" th:src="@{images/index.jpg}" src="images/index.jpg" alt="image index"/>
+
+        </main>
+    </div>
+</div>
+<div class="row">
+    <footer th:include="fragments/footer::footer" th:remove="tag"></footer>
+</div>
+</body>
+</html>
